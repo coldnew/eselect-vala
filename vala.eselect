@@ -8,7 +8,7 @@ MAINTAINER="ulltor@gmail.com"
 VERSION=0.2
 
 # Tools to manage symlinks to
-tools="vala valac vala-gen-introspect vapigen vapicheck"
+TOOLS="vala valac vala-gen-introspect vapigen vapicheck"
 
 # Find a list of valac symlink targets
 find_targets() {
@@ -99,7 +99,7 @@ do_set() {
 		# no parameter
 		die -q "You didn't tell me what version to use"
 	else
-		for tool in ${tools}; do
+		for tool in ${TOOLS}; do
 			
 			if [[ -L ${EROOT}/usr/bin/${tool} ]]; then
 				if ! remove_symlink ${tool} ; then
