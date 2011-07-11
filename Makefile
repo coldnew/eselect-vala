@@ -5,8 +5,8 @@
 PROJECT = eselect-vala
 VERSION = 0.1.1
 
-DIST_FILES = AUTHORS ChangeLog COPYING README.markdown \
-	Makefile vala.eselect.m4
+DIST_FILES = AUTHORS COPYING README.markdown \
+	Makefile vala.eselect.m4 ChangeLog
  
 DIST_TAR_GZ = $(PROJECT)-$(VERSION).tar.gz
 
@@ -14,6 +14,9 @@ MODULES_PATH = "/usr/share/eselect/modules/"
 INSTALL_DIR = "$(DESTDIR)/$(MODULES_PATH)"
 
 all: vala.eselect
+
+ChangeLog:
+	git log > ChangeLog
 
 vala.eselect: vala.eselect.m4 Makefile
 	m4 -DPV='$(VERSION)' vala.eselect.m4 > vala.eselect
@@ -35,3 +38,4 @@ dist: $(DIST_FILES)
 clean:
 	test -f $(DIST_TAR_GZ) && rm $(DIST_TAR_GZ) || true
 	test -f vala.eselect && rm vala.eselect || true
+	test -f ChangeLog && rm ChangeLog || true
