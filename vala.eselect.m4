@@ -5,7 +5,7 @@
 
 DESCRIPTION="Manage what version of Vala to be used by default"
 MAINTAINER="Gavrilov Maksim <ulltor@gmail.com>"
-VERSION=PV
+VERSION=PV # set by m4 from Makefile
 
 # Tools to manage symlinks to
 TOOLS="vala valac vala-gen-introspect vapigen vapicheck"
@@ -35,7 +35,7 @@ set_symlink() {
 	
 	# Extract version number from whole string
 	# Ex.: '0.12' from 'vala-0.12'
-	target=$(echo $target | sed  's/[^0-9\.]//g')
+	target=${target##*-}
 	
 	if [[ -z ${target} ]] ; then
 		die -q "Target \"${1}\" doesn't appear to be valid!"
@@ -50,11 +50,11 @@ set_symlink() {
 ### show action ###
 
 describe_show() {
-	echo "Show the current valac version"
+	echo "Show active valac version"
 }
 
 do_show() {
-	write_list_start "Current valac version:"
+	write_list_start "Active valac version:"
 	if [[ -L ${EROOT}/usr/bin/valac ]] ; then
 		local version=$(canonicalise "${EROOT}/usr/bin/valac")
 		write_kv_list_entry "${version%/}" ""
@@ -83,7 +83,7 @@ do_list() {
 ### set action ###
 
 describe_set() {
-	echo "Set a new version of Vala to be used by default"
+	echo "Set an active version of valac"
 }
 
 describe_set_parameters() {
