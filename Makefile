@@ -11,6 +11,7 @@ DIST_FILES = AUTHORS ChangeLog COPYING README.markdown \
 DIST_TAR_GZ = $(PROJECT)-$(VERSION).tar.gz
 
 MODULES_PATH = "/usr/share/eselect/modules/"
+INSTALL_DIR = "$(DESTDIR)/$(MODULES_PATH)"
 
 all: vala.eselect
 
@@ -18,11 +19,12 @@ vala.eselect: vala.eselect.m4 Makefile
 	m4 -DPV='$(VERSION)' vala.eselect.m4 > vala.eselect
 
 install: vala.eselect
-	cp vala.eselect "$(DESTDIR)/$(MODULES_PATH)"
+	test -d "$(INSTALL_DIR)" || mkdir -p "$(INSTALL_DIR)"
+	cp vala.eselect "$(INSTALL_DIR)"
 
 uninstall:
-	test -f "$(DESTDIR)/$(MODULES_PATH)/vala.eselect" && \
-		rm "$(DESTDIR)/$(MODULES_PATH)/vala.eselect" || true
+	test -f "$(INSTALL_DIR)/vala.eselect" && \
+		rm "$(INSTALL_DIR)/vala.eselect" || true
 
 dist: $(DIST_FILES)
 	mkdir -p $(PROJECT)-$(VERSION)
