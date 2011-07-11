@@ -1,11 +1,11 @@
 # -*-eselect-*-  vim: ft=eselect
-# Copyright 1999-2005 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id: $
 
 DESCRIPTION="Manage what version of Vala to be used by default"
-MAINTAINER="ulltor@gmail.com"
-VERSION=0.2
+MAINTAINER="Gavrilov Maksim <ulltor@gmail.com>"
+VERSION=PV
 
 # Tools to manage symlinks to
 TOOLS="vala valac vala-gen-introspect vapigen vapicheck"
