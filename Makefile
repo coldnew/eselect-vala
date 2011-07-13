@@ -5,8 +5,8 @@
 PROJECT = eselect-vala
 VERSION = 0.1.2
 
-DIST_FILES = AUTHORS COPYING README.markdown \
-	Makefile vala.eselect.m4 ChangeLog
+DIST_FILES = AUTHORS COPYING README ChangeLog \
+	Makefile vala.eselect.m4
  
 DIST_TAR_GZ = $(PROJECT)-$(VERSION).tar.gz
 
