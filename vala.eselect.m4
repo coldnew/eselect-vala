@@ -8,7 +8,7 @@ MAINTAINER="Gavrilov Maksim <ulltor@gmail.com>"
 VERSION=PV # set by m4 from Makefile
 
 # Tools to manage symlinks to
-TOOLS="vala valac vala-gen-introspect vapigen vapicheck"
+TOOLS="vala valac vala-gen-introspect vapigen"
 
 # Find a list of valac symlink targets
 find_targets() {
