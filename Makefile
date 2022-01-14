@@ -3,7 +3,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 PROJECT = eselect-vala
-VERSION = 0.1.2
+VERSION = 1.0.0
 
 DIST_FILES = AUTHORS COPYING README ChangeLog \
 	Makefile vala.eselect.m4
